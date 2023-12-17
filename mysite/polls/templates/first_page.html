@@ -1,0 +1,144 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            
+            header{
+                display:flex;
+                background-image : url("{% static "y.jpg" %}");
+                color:black;
+                height :23vh;
+            }
+            nav{
+                display:flex;
+                flex-direction :column;
+                height:23vh;
+            }
+            #logo{
+                display: flex;
+                flex-direction:row;
+                height:50em;
+            }
+            
+            .u{
+                color:white;
+                flex=15;
+                align-items :start;
+                height : 34px;
+                text-decoration :none;
+            
+            }
+            .one{
+                background-image : url("{% static "y.jpg" %}");
+                flex:1;
+                align-item:start;
+                height:50;
+               
+            }
+            .two{
+                flex :0;
+                align-item:end;
+                height:50;
+                width:100px;
+                
+            }
+            .three{
+                font-size:62;
+                flex:70;
+                align-item:center;
+                justify-content: center;
+                font-family:Times New Roman;
+                height:50;
+            }
+            body{
+                background-image: url("{% static "b.jpg" %}");
+            }
+
+            p{
+                color: white;
+                font-size :18;
+                margin-top:30px;
+                margin-left:0px;
+                font-family:Times New Roman;
+            }
+            h{
+                color:white;
+                font-size:30;
+                margin-left:0px;
+                margin-top:450px;
+                padding:0;
+
+            }
+            .B{
+                background-color: yellow;
+                border: 10px solid black;
+                color: black;
+                font-family: Times New Roman;
+                padding: 5px 10px;
+                text-align: center;
+                display: inline-block;
+                align-items:center;
+                flex:20;
+                justify-content: center;
+                font-size: 15px;
+                cursor: pointer;
+                margin-left:600px;
+                margin-top:120px;
+                border-radius: 20px;
+                font-weight:bold;
+                
+            }
+            .l{
+                height : 140px;
+                width :160px
+            }
+            .f{
+                height : 150px;
+            }
+            .x{
+                color : black;
+                text-decoration :none;
+                font-family :Times New Roman;
+                font-weight :bold;
+                margin-left:6px;
+                margin-bottom:0px;
+            }
+            .y{
+                color : black;
+                text-decoration :none;
+                font-family :Times New Roman;
+                font-weight :bold;
+                margin-left : 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id = "logo">
+                    <div class= "one">
+                        <img src = "{% static "subject.png" %}" class = "l" alt>
+                    </div>
+                    <div class = "three">
+                        <b>NATIONAL PHYSICAL LABORATORY</b>
+                    </div>
+                    <div class = "two">
+                        <img src = "{% static "a.png" %}" class = "f" alt>
+                    </div>
+                </div>
+                <div class = "z">
+                    <a href = 'http://127.0.0.1:8000/' class = "x"><b>Home</b></a>
+                    <a href = 'https://www.nplindia.org/' class = "y"><b>About NPL</b></a>
+                </div>
+            </nav>
+        </header>   
+    <h><b><u>NETWORK TIME PROTOCOL (NTP)</u></b></h>
+    <p><b>The Network Time Protocol is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks. In operation since before 1985, NTP is one of the oldest Internet protocols in current use. NTP is intended to synchronize all participating computers to within a few milliseconds of Coordinated Universal Time (UTC). It uses the intersection algorithm, a modified version of Marzullo's algorithm, to select accurate time servers and is designed to mitigate the effects of variable network latency. NTP can usually maintain time to within tens of milliseconds over the public Internet, and can achieve better than one millisecond accuracy in local area networks under ideal conditions. To check the NTP server data click on the button below:</b></p>
+    <button class="B" 
+    onclick="window.location.href = 'http://127.0.0.1:8000/polls/2223';">
+        <b>GET NTP DATA!!</b>
+    </button>
+    
+    </body>
+</html>

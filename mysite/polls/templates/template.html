@@ -1,0 +1,204 @@
+{%load static%}
+<head>
+<style>
+            header{
+                display:flex;
+                background-image : url("{% static "y.jpg" %}");
+                color:black;
+                height :23vh;
+            }
+            
+            nav{
+                display:flex;
+                flex-direction :column;
+                height:23vh;
+            }
+            #logo{
+                display: flex;
+                flex-direction:row;
+                height:20em;
+            }
+
+            .z{
+                color:white;
+                flex=15;
+                align-items :start;
+                height : 34px;
+                text-decoration :none;
+            }
+            .one{
+                background-image : url("{% static "y.jpg" %}");
+                flex:1;
+                align-item:start;
+                height:50;
+               
+            }
+            .two{
+                flex :0;
+                align-item:end;
+                height:50;
+                width:100px;
+                
+            }
+            .three{
+                font-size:62;
+                flex:70;
+                align-item:center;
+                justify-content: center;
+                font-family:Times New Roman;
+                height:50;
+            }
+            #first{
+              display:flex;
+              flex-direction :row;
+            }
+            .second{
+              flex:5;
+              align-item:start;
+            }
+            .third{
+              font-size:25;
+              flex:5.5;
+              color:white;
+              margin-top:12px
+            }
+            .fourth{
+              align-item:end;
+              margin-top:10px;
+
+            }
+            .G{
+              background-color:yellow;
+              border-radius:20px;
+              cursor:pointer;
+              border:2px solid white;
+              font-weight : bold;
+              font-size:14;
+              margin-top:4px;
+            }
+            body{
+                 background-image: url("{% static "b.jpg" %}");
+            }
+table{
+  color:white;
+}
+.s{
+  background-color: yellow;
+  border: 2px solid white;
+  color: black;
+  font-family: Times New Roman;
+  padding-top: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  cursor:pointer;
+  font-weight : bold;
+  margin-left:0;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size : 15px;
+}
+.l{
+  height : 140px;
+  width:160px;
+}
+.f{
+  height : 150px;
+  padding-right:0;
+}
+.x{
+  color : black;
+  text-decoration :none;
+  font-family :Times New Roman;
+  font-weight :bold;
+  margin-left:6px;
+}
+.y{
+  color : black;
+  text-decoration :none;
+  font-family :Times New Roman;
+  font-weight :bold;
+  margin-left : 10px;
+}
+.err[{{x.iserror}}=="Y"]:after{
+  background-color:yellow;
+
+}
+  
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+        <div id = "logo">
+            <div class= "one">
+                <img src = "{% static "subject.png" %}" class = "l" alt>
+            </div>
+            <div class = "three">
+                <b>NATIONAL PHYSICAL LABORATORY</b>
+            </div>
+            <div class = "two">
+                <img src = "{% static "a.png" %}" class = "f" alt>
+            </div>
+        </div>
+        <div class = "z">
+            <a href = 'http://127.0.0.1:8000/' class = "x"><b>Home</b></a>
+            <a href = 'https://www.nplindia.org/' class = "y"><b>About NPL</b></a>
+        </div>
+    </nav>
+</header> 
+
+<div id = 'first'>
+  <div class = 'second'>
+    <form action = "/time/" method = "post">
+      {%csrf_token%}
+      {{form}}
+      <input type = "submit" value ="Search!!" class = "s">
+    </form>
+  </div> 
+  <div class ='third'>  
+    <b>48 HOURS DATA</b>
+  </div>
+  <div class ='fourth'>
+    <button class="G" 
+    onclick="window.location.href = 'http://127.0.0.1:8000/polls/2224';">
+        <b>GET COMPLETE DATA</B>
+    </button>
+  </div>
+</div>
+<center>
+<table border='1'>
+    <tr>
+      <th>pc_time</th>
+      <th>date</th>
+      <th>ntpserverip</th>
+      <th>stratum</th>
+      <th>pcip</th>
+      <th>t0</th>
+      <th>t1</th>
+      <th>t2</th>
+      <th>t3</th>
+      <th>toffset</th>
+      <th>tdelay</th>
+      <th>iserror</th>
+      {% comment %} <th>errmsg</th> {% endcomment %}
+   </tr>
+    {% for x in news %}
+      <tr class="err">
+        <td>{{ x.pc_time }}</td> 
+        <td>{{x.date}}</td>
+        <td>{{ x.ntpserverip }}</td>
+        <td>{{ x.stratum }}</td>
+        <td>{{ x.pcip }}</td>
+        <td>{{ x.t0 }}</td>
+        <td>{{ x.t1 }}</td>
+        <td>{{ x.t2 }}</td>
+        <td>{{ x.t3 }}</td>
+        <td>{{ x.toffset }}</td>
+        <td>{{ x.tdelay }}</td>
+        <td>{{ x.iserror }}</td>
+        {% comment %} <td>{{ x.errmsg }}</td>  {% endcomment %}
+   </tr>
+    {% endfor %}
+  </table>
+</center>
+</body>  
